@@ -1,6 +1,10 @@
 import * as custom from './marketplace-custom-config.js';
 import defaultLocationSearches from './default-location-searches';
-import { stripePublishableKey, stripeSupportedCountries } from './stripe-config';
+import {
+  stripePublishableKey,
+  useDeprecatedLegalEntityWithStripe,
+  stripeSupportedCountries,
+} from './stripe-config';
 
 const env = process.env.REACT_APP_ENV;
 const dev = process.env.REACT_APP_ENV === 'development';
@@ -78,8 +82,6 @@ const currencyConfig = {
   currency,
   currencyDisplay: 'symbol',
   useGrouping: true,
-  // Note: you should change fraction digits to 0,
-  //       if the currency is not using subunits (like JPY).
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 };
@@ -94,16 +96,16 @@ const streetAddress = 'Bulevardi 14';
 const canonicalRootURL = process.env.REACT_APP_CANONICAL_ROOT_URL;
 
 // Site title is needed in meta tags (bots and social media sharing reads those)
-const siteTitle = 'Saunatime';
+const siteTitle = 'BitCannyFTW';
 
 // Twitter handle is needed in meta tags (twitter:site). Start it with '@' character
-const siteTwitterHandle = '@sharetribe';
+const siteTwitterHandle = '@bitcanny';
 
 // Instagram page is used in SEO schema (http://schema.org/Organization)
 const siteInstagramPage = null;
 
 // Facebook page is used in SEO schema (http://schema.org/Organization)
-const siteFacebookPage = 'https://www.facebook.com/Sharetribe/';
+const siteFacebookPage = 'https://www.facebook.com/bitcanny/';
 
 // Facebook counts shares with app or page associated by this id
 // Currently it is unset, but you can read more about fb:app_id from
@@ -210,6 +212,7 @@ const config = {
   stripe: {
     publishableKey: stripePublishableKey,
     supportedCountries: stripeSupportedCountries,
+    useDeprecatedLegalEntityWithStripe,
   },
   canonicalRootURL,
   address: {

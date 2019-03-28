@@ -3,6 +3,7 @@
 .title {
   @apply --marketplaceH1FontStyles;
   margin-top: 0;
+  text-align: center;
 }
 
 .steps {
@@ -17,7 +18,8 @@
 .step {
   @media (--viewportMedium) {
     width: 324px;
-    margin-right: 40px;
+    margin-right: 75px;
+    text-align:center;
   }
 }
 
@@ -29,7 +31,8 @@
 
 .stepTitle {
   margin-top: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 26px;
+  text-align: center;
 
   @media (--viewportMedium) {
     margin-top: 21px;
@@ -39,6 +42,7 @@
 
 .createListingLink {
   margin-top: 36px;
+  text-align:center;
 
   @media (--viewportMedium) {
     margin-top: 52px;

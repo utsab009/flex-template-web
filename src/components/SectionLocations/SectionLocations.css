@@ -3,8 +3,12 @@
 .title {
   @apply --marketplaceH1FontStyles;
 
-  margin-top: 0;
-  max-width: 735px;
+  margin-top: 50px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight:400;
+  letter-spacing: 0;
 
   @media (--viewportMedium) {
     margin-bottom: 23px;
@@ -38,7 +42,7 @@
 
 .location {
   @media (--viewportMedium) {
-    margin-right: 40px;
+    margin-right: 10px;
     margin-bottom: 0;
   }
 }
@@ -89,7 +93,8 @@
   color: var(--matterColor);
   margin-top: 15px;
   margin-bottom: 0;
-
+  font-size:18px;
+  font-weight: 400;
   @media (--viewportMedium) {
     margin-top: 21px;
   }

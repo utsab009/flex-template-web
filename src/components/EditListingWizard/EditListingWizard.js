@@ -156,7 +156,7 @@ class EditListingWizard extends Component {
   handlePublishListing(id) {
     const { onPublishListingDraft, currentUser } = this.props;
     const stripeConnected =
-      currentUser && currentUser.stripeAccount && !!currentUser.stripeAccount.id;
+      currentUser && currentUser.attributes && currentUser.attributes.stripeConnected;
     if (stripeConnected) {
       onPublishListingDraft(id);
     } else {
@@ -172,8 +172,9 @@ class EditListingWizard extends Component {
   }
 
   handlePayoutSubmit(values) {
+    const { fname: firstName, lname: lastName, ...rest } = values;
     this.props
-      .onPayoutDetailsSubmit(values)
+      .onPayoutDetailsSubmit({ firstName, lastName, ...rest })
       .then(() => {
         this.setState({ showPayoutDetails: false });
         this.props.onManageDisableScrolling('EditListingWizard.payoutModal', false);
@@ -288,7 +289,6 @@ class EditListingWizard extends Component {
               className={css.payoutDetails}
               inProgress={fetchInProgress}
               createStripeAccountError={errors ? errors.createStripeAccountError : null}
-              currentUserId={this.props.currentUser.id}
               onChange={onPayoutDetailsFormChange}
               onSubmit={this.handlePayoutSubmit}
             />

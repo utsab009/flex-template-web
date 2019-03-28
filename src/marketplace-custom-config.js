@@ -32,6 +32,10 @@ export const amenities = [
     label: 'Barbeque',
   },
   {
+    key: 'bit_custom_spa',
+    label: 'Bit Custom Spa',
+  },
+  {
     key: 'own_food_allowed',
     label: 'Own food allowed',
   },
@@ -41,6 +45,7 @@ export const categories = [
   { key: 'smoke', label: 'Smoke' },
   { key: 'electric', label: 'Electric' },
   { key: 'wood', label: 'Wood' },
+  { key: 'bitspa', label: 'BitSpa' },
   { key: 'other', label: 'Other' },
 ];
 

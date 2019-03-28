@@ -34,7 +34,7 @@
   }
 
   @media (--viewportLarge) {
-    padding: 36px 36px 0 36px;
+    padding: 0;
   }
 }
 
@@ -350,6 +350,8 @@
   @media (--viewportMedium) {
     margin-top: 0;
     margin-bottom: 5px;
+    font-size:30px;
+    letter-spacing:0;
   }
 }
 

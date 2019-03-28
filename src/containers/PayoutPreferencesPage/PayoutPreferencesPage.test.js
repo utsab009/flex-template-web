@@ -1,14 +1,16 @@
 import React from 'react';
 import { renderShallow } from '../../util/test-helpers';
-import { fakeIntl, createCurrentUser, createStripeAccount } from '../../util/test-data';
+import { fakeIntl, createCurrentUser } from '../../util/test-data';
 import { PayoutPreferencesPageComponent } from './PayoutPreferencesPage';
 
 const noop = () => null;
 
 describe('PayoutPreferencesPage', () => {
   it('matches snapshot with Stripe not connected', () => {
-    const currentUser = createCurrentUser('stripe-not-connected');
-    expect(currentUser.stripeAccount).toBeUndefined();
+    const currentUser = createCurrentUser('stripe-not-connected', {
+      stripeConnected: false,
+    });
+    expect(currentUser.attributes.stripeConnected).toEqual(false);
     const tree = renderShallow(
       <PayoutPreferencesPageComponent
         currentUser={currentUser}
@@ -23,14 +25,8 @@ describe('PayoutPreferencesPage', () => {
     expect(tree).toMatchSnapshot();
   });
   it('matches snapshot with Stripe connected', () => {
-    const currentUser = createCurrentUser(
-      'stripe-connected',
-      {},
-      {
-        stripeAccount: createStripeAccount(),
-      }
-    );
-    expect(currentUser.stripeAccount).toBeDefined();
+    const currentUser = createCurrentUser('stripe-connected');
+    expect(currentUser.attributes.stripeConnected).toEqual(true);
     const tree = renderShallow(
       <PayoutPreferencesPageComponent
         currentUser={currentUser}
@@ -45,14 +41,8 @@ describe('PayoutPreferencesPage', () => {
     expect(tree).toMatchSnapshot();
   });
   it('matches snapshot with details submitted', () => {
-    const currentUser = createCurrentUser(
-      'stripe-connected',
-      {},
-      {
-        stripeAccount: createStripeAccount(),
-      }
-    );
-    expect(currentUser.stripeAccount).toBeDefined();
+    const currentUser = createCurrentUser('stripe-connected');
+    expect(currentUser.attributes.stripeConnected).toEqual(true);
     const tree = renderShallow(
       <PayoutPreferencesPageComponent
         currentUser={currentUser}

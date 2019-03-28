@@ -11,6 +11,7 @@ import css from './SectionLocations.css';
 import helsinkiImage from './images/location_helsinki.jpg';
 import rovaniemiImage from './images/location_rovaniemi.jpg';
 import rukaImage from './images/location_ruka.jpg';
+import beverlyImage from './images/beverly.jpg';
 
 class LocationImage extends Component {
   render() {
@@ -63,6 +64,11 @@ const SectionLocations = props => {
         {locationLink(
           'Ruka',
           rukaImage,
+          '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
+        )}
+        {locationLink(
+          'Beverly Hills',
+          beverlyImage,
           '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
         )}
       </div>
